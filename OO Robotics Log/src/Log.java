@@ -61,7 +61,11 @@ import java.awt.HeadlessException;
 
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.UIManager;
 import javax.swing.WindowConstants;
+import java.awt.Component;
+import javax.swing.Box;
+import javax.swing.JSeparator;
 
 public class Log extends JFrame {
 	/**
@@ -231,6 +235,12 @@ public class Log extends JFrame {
 		//creates the toolbar and adds it to the content pane
 		//JToolBar toolBar = new JToolBar();
 		//toolBar.setBounds(0, 0, 189, 28);
+	    
+	    try {																			//set the look and feel of the program to be the same as the os
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			} catch(Exception ex) {
+				System.out.println(ex);
+			};
 		
         JToolBar toolBar = new JToolBar();
         toolBar.setBounds(0, 0, 206, 24);
@@ -313,6 +323,10 @@ public class Log extends JFrame {
 		
 		toolBar.add(btnSubmit);			//finally add the submit button to the toolbar
 		toolBar.getRootPane().setDefaultButton(btnSubmit);
+		
+		JButton btnOpenRecords = new JButton("Open Records");
+		btnOpenRecords.setBounds(387, 0, 112, 21);
+		getContentPane().add(btnOpenRecords);
 		
 	}
 	
